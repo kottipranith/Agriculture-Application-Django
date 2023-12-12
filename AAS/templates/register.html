@@ -1,0 +1,38 @@
+{%extends 'navbar.html' %}
+{% load static %}
+{% block body%}
+<head>
+    <link rel="stylesheet" href="{% static '/css/login.css' %}"/>
+</head>
+<div>
+    {% for i in messages%}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <h>Message : {{i}}</h>
+    <a href="{%url 'renderregister'%}"><button style="margin-left:1100px;color:black;background-color:hsl(0,100%,93%);border:none">x</button></a>
+</div>
+
+    {% endfor %}
+</div>
+
+<center>
+    <div id="div">
+      {% csrf_token %}
+<form  id='form' method = "post" action="{% url 'registeruser' %}">
+{% csrf_token %}
+        <h1>Register Page</h1><br/>
+        <input type ="text" name ="uname" placeholder="Enter Username" required="required"/><br/>&nbsp;
+        <input type ="text" name ="mail" placeholder="Enter mail" style="margin-top:15px" required="required"/><br/>&nbsp;
+        <input type ="text" name ="mobile" placeholder="Enter mobile" style="margin-top:15px" required="required"/><br/>&nbsp;
+        <input type ="password" name ="pass" placeholder="Enter Password" style="margin-top:15px" required="required"/><br/>&nbsp;
+        <input type ="password" name ="cpass" placeholder="Confirm Password" style="margin-top:15px" required="required"/><br/>&nbsp;
+        <input id='btn' type ="submit"/><br>
+<!--    <input type="radio" name="role" value="admin" style="margin-top:5px"/> <label >Admin</label><br>-->
+
+<!--    <input type="radio" name="role" value="user"/><label>User</label><br>-->
+    <br>
+    Already have an account? <a href="{%url 'renderlogin'%}">Login</a>
+
+</form>
+        </div>
+</center>
+{%endblock%}

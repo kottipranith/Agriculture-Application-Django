@@ -1,0 +1,21 @@
+{%extends 'navbar.html' %}
+{% load static %}
+{% block body%}
+<head>
+        <link rel= "stylesheet" type= "text/css" href= "{% static '/css/login.css' %}">
+    </head>
+<center>
+    <div id="div">
+      {% csrf_token %}
+<form  id='form' method = "post" action="{% url 'login' %}">
+   {% csrf_token %}
+        <h1>Login Page</h1><br/>&nbsp;
+    <input type ="text" name ="uname" placeholder="Username"/><br/>&nbsp;
+    <input type ="password" name ="pass" placeholder="Password" style="margin-top:20px"/><br/>&nbsp;
+    <input id='btn' type ="submit"/><br/><br>
+        <a href="{% url 'forgetpassword' %}">forget password?</a><br>
+        Dont have an account?<a href="{% url 'renderregister' %}">Register</a>
+</form>
+    </div>
+</center>
+{%endblock%}

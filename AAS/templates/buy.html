@@ -1,0 +1,55 @@
+
+
+{%extends 'navbar.html' %}
+{% load static %}
+{% block body%}
+	<style>
+		.card {
+			display: inline-block;
+			margin: 40px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 10px;
+			width: 250px;
+
+		}
+		.card img {
+			width: 100%;
+			height: auto;
+			border-radius: 5px;
+		}
+		.card h3 {
+			margin: 0;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.card p {
+			margin: 0;
+			font-size: 14px;
+			text-align: justify;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+ <form method="post" action="{% url 'buy' %}">
+    {% csrf_token %}
+
+      {% for product in data %}
+
+    <div class="card">
+      <img src="{{product.photo.url}}" alt="Card 3">
+        <input type="text" name="item" value="{{product.item}}" style="border:none"/>
+         <input type="text" name="cost" value="{{product.cost}}" style="border:none"/>
+<!--      <p>This is the third card</p>--><center>
+            <input type="submit" value="Buy" style="background-color:black;color:white"/>
+		</center>
+
+    </div>
+      {% endfor %}
+
+  </form>
+</body>
+{% endblock%}

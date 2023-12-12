@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block body%}
+<head>
+    <style>
+        table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+<center>
+    <h>Contact Details</h><br><br>
+<table>
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Comment</th>
+    </tr>
+    {%for i in data%}
+    <tr>
+        <td>{{i.firstname}}</td>
+        <td>{{i.lastname}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.comment}}</td>
+    </tr>
+
+{%endfor%}
+
+</table>
+    </center>
+
+{%endblock%}

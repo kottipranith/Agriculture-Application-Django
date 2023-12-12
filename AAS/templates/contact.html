@@ -1,0 +1,63 @@
+{%extends 'navbar.html' %}
+{% load static %}
+{% block body%}
+<head>
+  <style>
+input[type=text],input[type=email], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+input[type=submit] {
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+<!--input[type=submit]:hover {-->
+<!--  background-color: black;-->
+<!--  color: white;-->
+<!--}-->
+
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+  </style>
+</head>
+<div class="container">
+  {% csrf_token %}
+  <form action="{% url 'contactus' %}" method="post">
+   {% csrf_token %}
+<!--      <h2>Send Mail by clicking on submit</h2>-->
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your mail">
+
+
+    <label for="subject">Comment</label>
+    <textarea id="subject" name="comment" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit" >
+
+  </form>
+</div>
+
+{%endblock%}
+
+

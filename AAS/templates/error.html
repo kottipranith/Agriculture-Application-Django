@@ -1,0 +1,11 @@
+{% extends 'navbar.html'%}
+{% block body%}
+<div>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <h>{{error}}</h>
+    <a href="{%url 'renderlogin'%}"><button style="margin-left:1100px;color:black;background-color:hsl(0,100%,93%);border:none">x</button></a>
+</div>
+
+</div>
+{%endblock%}

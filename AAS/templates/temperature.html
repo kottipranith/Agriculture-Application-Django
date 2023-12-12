@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+  {% csrf_token %}
+  <form action="{% url 'temperature' %}" method="post">
+    {% csrf_token %}
+    <h2>Find Temperature</h2>
+    <label>enter city</label>
+    <input name="temp" type="text"/><br/>
+    <input type="submit"/>
+  </form>
+</center>
+</body>
+</html>

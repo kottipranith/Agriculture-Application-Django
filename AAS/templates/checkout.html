@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buy cool new product</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="product">
+        <img src="{{data.photo.url}}" alt="The cover of Stubborn Attachments" />
+        <div class="description">
+          <h3>{{data.item}}</h3>
+          <h5>Rs {{data.cost}}</h5>
+        </div>
+      </div>
+      {%csrf_token%}
+      <form action="{% url 'checkout'%}" method="POST">
+        {%csrf_token%}
+        <button type="submit" id="checkout-button">Checkout</button>
+      </form>
+    </section>
+  </body>
+</html>
